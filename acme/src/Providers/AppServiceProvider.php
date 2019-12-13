@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        foreach (config('acme.bindings') as $key => $binding) {
+            $this->app->bind($key, $binding);
+        }
     }
 
     /**
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Schema::defaultStringLength(191);
     }
 }
