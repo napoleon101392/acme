@@ -20,6 +20,9 @@ class CreateBusStopTable extends Migration
             $table->timestamp('takeoff_at');
             $table->timestamp('arrives_at');
             $table->timestamps();
+
+            $table->foreign('bus_id')->references('id')->on('buses')->onDelete('cascade');
+            $table->foreign('stop_id')->references('id')->on('stops')->onDelete('cascade');
         });
     }
 
