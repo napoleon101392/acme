@@ -24,8 +24,6 @@ class AuthenticationManager
             'access_token' => $return->accessToken,
             'created_at'   => Carbon::parse($return->token->created_at)->setTimezone(config('app.timezone')),
             'expires_at'   => Carbon::parse($return->token->expires_at)->setTimezone(config('app.timezone')),
-            // 'created_at'   => with_timezone($return->token->created_at),
-            // 'expires_at'   => with_timezone($return->token->expires_at),
         ];
     }
 }
