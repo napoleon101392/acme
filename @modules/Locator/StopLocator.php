@@ -2,8 +2,8 @@
 
 namespace Modules\Locator;
 
-use Modules\Equalizer\Contracts\LocatorInterface;
-use Modules\Equalizer\Exceptions\MissingLocationException;
+use Modules\Transporation\Contracts\LocatorInterface;
+use Modules\Transporation\Exceptions\MissingLocationException;
 
 class StopLocator implements LocatorInterface
 {

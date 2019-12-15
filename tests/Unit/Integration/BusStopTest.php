@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Modules\Transporation\Transporation;
+use Modules\Transportation\Transportation;
 
 class BusStopTest extends TestCase
 {
@@ -20,7 +20,7 @@ class BusStopTest extends TestCase
             ->setLatitude($stop->latitude)
             ->setLongitude($stop->longitude);
 
-        $result = Transporation::make()->to($bus)->from($stop)->calculate();
+        $result = Transportation::make()->to($bus)->from($stop)->calculate();
 
         $this->assertTrue("10,085" === $result);
     }
