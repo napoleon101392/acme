@@ -4,13 +4,8 @@ php:
   - '7.2'
 
 before_script:
-  - cp .env.travis .env
-  - mysql -e 'create database homestead;'
-  - composer self-update
-  - composer install --no-interaction
+  - cp .env.example .env
+  - composer install
   - composer dumpautoload -o
   - php artisan optimize
   - php artisan migrate --seed
-
-script:
-  - vendor/bin/phpunit

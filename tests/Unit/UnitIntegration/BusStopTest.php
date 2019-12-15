@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Modules\Equalizer\Equalizer;
 
-class BusTest extends TestCase
+class BusStopTest extends TestCase
 {
     public function testGetDistanceOfBusToStop()
     {
