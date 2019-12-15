@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Equalizer\Contracts\Locator;
+namespace Modules\Locator;
 
 use Modules\Equalizer\Contracts\LocatorInterface;
 use Modules\Equalizer\Exceptions\MissingLocationException;
 
-class BusLocator implements LocatorInterface
+class Bus implements LocatorInterface
 {
     /**
      * Undocumented function
@@ -14,7 +14,7 @@ class BusLocator implements LocatorInterface
      *
      * @return void
      */
-    public function setLatidude($latitude)
+    public function setLatitude($latitude)
     {
         $this->latitude = $latitude;
 
@@ -42,7 +42,7 @@ class BusLocator implements LocatorInterface
      */
     public function getLatitude()
     {
-        if ( ! isset($this->latitude)) {
+        if (!isset($this->latitude)) {
             throw new MissingLocationException;
         }
 
@@ -56,7 +56,7 @@ class BusLocator implements LocatorInterface
      */
     public function getLongitude()
     {
-        if ( ! isset($this->longitude)) {
+        if (!isset($this->longitude)) {
             throw new MissingLocationException;
         }
 

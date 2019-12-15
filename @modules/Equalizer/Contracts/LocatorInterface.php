@@ -11,7 +11,7 @@ interface LocatorInterface
      *
      * @return void
      */
-    public function setLatidude($latitude);
+    public function setLatitude($latitude);
 
     /**
      * Undocumented function

@@ -8,6 +8,8 @@ final class Calculator
 {
     const PER_MILE = 1.1515;
 
+    protected $data;
+
     /**
      * Undocumented function
      *
@@ -16,7 +18,7 @@ final class Calculator
      *
      * @return void
      */
-    public function getDistance($to, $from)
+    public function getDistance(array $to, array $from)
     {
         $lat1 = $to['latitude'];
         $lon1 = $to['longitude'];

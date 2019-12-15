@@ -2,14 +2,10 @@
 
 namespace Modules\Equalizer;
 
-use Modules\MakeableTrait;
 use Modules\Equalizer\Contracts\LocatorInterface;
 
 final class Equalizer
 {
-    /** @Undocumented */
-    use MakeableTrait;
-
     /**
      * Undocumented function
      *
@@ -65,5 +61,17 @@ final class Equalizer
     public function calculate()
     {
         return (new Calculator)->getDistance($this->to, $this->from)->toKilometer();
+    }
+
+    /**
+     * Should be able to create a self instance thru static call.
+     *
+     * This is similarly for Laravel devs.
+     *
+     * @return self
+     */
+    public static function make()
+    {
+        return new static();
     }
 }
