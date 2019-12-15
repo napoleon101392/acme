@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Transporation;
+namespace Modules\Transportation;
 
-use Modules\Transporation\Contracts\LocatorInterface;
+use Modules\Transportation\Contracts\LocatorInterface;
 
-final class Transporation
+final class Transportation
 {
     /**
      * Undocumented function

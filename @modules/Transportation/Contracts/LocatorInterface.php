@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Transporation\Contracts;
+namespace Modules\Transportation\Contracts;
 
 interface LocatorInterface
 {

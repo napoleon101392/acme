@@ -3,10 +3,10 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Modules\Transporation\Transporation;
-use Modules\Transporation\Contracts\LocatorInterface;
+use Modules\Transportation\Transportation;
+use Modules\Transportation\Contracts\LocatorInterface;
 
-class TransporationTest extends TestCase
+class TransportationTest extends TestCase
 {
     public function setUp(): void
     {
@@ -25,7 +25,7 @@ class TransporationTest extends TestCase
             ->setLatitude('29.46786')
             ->setLongitude('14.000');
 
-        $locator = Transporation::make()->to($bus)->from($bus2)->calculate();
+        $locator = Transportation::make()->to($bus)->from($bus2)->calculate();
 
         $this->assertTrue("10,085" === $locator);
     }

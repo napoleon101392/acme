@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Transporation\Support;
+namespace Modules\Transportation\Support;
 
 use Illuminate\Support\Collection;
 

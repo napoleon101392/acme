@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Modules\Transporation\Calculator;
+use Modules\Transportation\Calculator;
 
 class CalculatorTest extends TestCase
 {

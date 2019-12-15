@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\Transporation;
+namespace Modules\Transportation;
 
-use Modules\Transporation\Support\Converter;
+use Modules\Transportation\Support\Converter;
 
 final class Calculator
 {

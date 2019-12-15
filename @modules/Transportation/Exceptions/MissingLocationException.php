@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Transporation\Exceptions;
+namespace Modules\Transportation\Exceptions;
 
 use Exception;
 

@@ -2,8 +2,8 @@
 
 namespace Modules\Locator;
 
-use Modules\Transporation\Contracts\LocatorInterface;
-use Modules\Transporation\Exceptions\MissingLocationException;
+use Modules\Transportation\Contracts\LocatorInterface;
+use Modules\Transportation\Exceptions\MissingLocationException;
 
 class BusLocator implements LocatorInterface
 {

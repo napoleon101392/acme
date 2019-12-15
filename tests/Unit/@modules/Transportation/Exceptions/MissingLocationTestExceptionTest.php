@@ -3,8 +3,8 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Modules\Transporation\Transporation;
-use Modules\Transporation\Exceptions\MissingLocationException;
+use Modules\Transportation\Transportation;
+use Modules\Transportation\Exceptions\MissingLocationException;
 
 class MissingLocationExceptionsTest extends TestCase
 {
@@ -14,6 +14,6 @@ class MissingLocationExceptionsTest extends TestCase
         $bus  = app('bus');
         $bus2 = app('bus');
 
-        $locator = Transporation::make()->to($bus)->from($bus2)->calculate();
+        $locator = Transportation::make()->to($bus)->from($bus2)->calculate();
     }
 }
