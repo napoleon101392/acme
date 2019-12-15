@@ -17,8 +17,8 @@ class CreateBusStopTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('bus_id');
             $table->unsignedInteger('stop_id');
-            $table->timestamp('takeoff_at');
-            $table->timestamp('arrives_at');
+            $table->timestamp('takeoff_at')->nullable();
+            $table->timestamp('arrives_at')->nullable();
             $table->timestamps();
 
             $table->foreign('bus_id')->references('id')->on('buses')->onDelete('cascade');
