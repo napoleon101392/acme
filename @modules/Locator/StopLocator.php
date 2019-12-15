@@ -5,7 +5,7 @@ namespace Modules\Locator;
 use Modules\Equalizer\Contracts\LocatorInterface;
 use Modules\Equalizer\Exceptions\MissingLocationException;
 
-class Stop implements LocatorInterface
+class StopLocator implements LocatorInterface
 {
     /**
      * Undocumented function

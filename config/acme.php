@@ -19,8 +19,8 @@ return [
         /**
          * Core Modules
          */
-        'bus' => Modules\Locator\Bus::class,
-        'stop' => Modules\Locator\Stop::class,
+        'bus' => Modules\Locator\BusLocator::class,
+        'stop' => Modules\Locator\StopLocator::class,
         'authentication.manager' => Modules\Authentication\AuthenticationManager::class,
         'authentication.passport' => Modules\Authentication\PassportManager::class,
     ]

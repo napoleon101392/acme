@@ -7,6 +7,14 @@ use Modules\Equalizer\Equalizer;
 
 class BusTest extends TestCase
 {
+    public function setUp()
+    {
+        parent::setUp();
+
+        factory(resolve('model.bus'));
+        factory(resolve('model.stop'));
+    }
+
     public function testGetDistanceOfBusToStop()
     {
         $bus = resolve('repository.bus')->first();
