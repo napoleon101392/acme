@@ -9,7 +9,7 @@ class BusTest extends TestCase
 {
     public function testGetDistanceOfBusToStop()
     {
-        $bus = resolve('repository.bus')->first();
+        $bus  = resolve('repository.bus')->first();
         $stop = resolve('repository.stop')->first();
 
         $bus = resolve('bus')
