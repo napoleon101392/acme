@@ -4,6 +4,7 @@ php:
   - '7.2'
 
 before_script:
+  - touch database/database-testing.sqlite
   - cp .env.example .env
   - composer install
   - composer dumpautoload -o
