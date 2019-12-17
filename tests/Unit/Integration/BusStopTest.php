@@ -12,16 +12,13 @@ class BusStopTest extends TestCase
 
     public function testGetDistanceOfBusToStop()
     {
-        $bus  = resolve('model.bus')->first();
-        $stop = resolve('model.stop')->first();
-
         $bus = resolve('bus')
-            ->setLatitude($bus->latitude)
-            ->setLongitude($bus->longitude);
+            ->setLatitude('32.9697')
+            ->setLongitude('-98.53506');
 
         $stop = resolve('stop')
-            ->setLatitude($stop->latitude)
-            ->setLongitude($stop->longitude);
+            ->setLatitude('29.46786')
+            ->setLongitude('14.000');
 
         $result = Transportation::make()->to($bus)->from($stop)->calculate();
 
