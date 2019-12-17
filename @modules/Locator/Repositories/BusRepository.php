@@ -4,46 +4,71 @@ namespace Modules\Locator\Repositories;
 
 class BusRepository
 {
-    public function create()
-    {
-        app('model.bus')->create();
-
-        $this->cacheBusStops();
-    }
-
-    public function update()
-    {
-        app('user.bus')->fill('');
-
-        $this->cacheBusStops();
-    }
-
+    /**
+     * Display all bus stops
+     *
+     * @return void
+     */
     public function all()
     {
-        if (Cache::has('bus_stops')) {
-            return Cache::get('bus_stops');
+        $cache = 'bus-repository-all';
+
+        if (Cache::has($cache)) {
+            return Cache::get($cache);
         }
 
-        return $this->cacheBusStops();
+        $record = app('model.bus')->all();
+
+        Cache::forever($cache, $record);
+
+        return $record;
     }
 
-    public function first()
+    /**
+     * Create a bus
+     *
+     * @param [type] $request
+     *
+     * @return void
+     */
+    public function create($request)
     {
-        return app('model.bus')->first();
+        $cache = 'bus-repository-all';
+
+        if (Cache::has($cache)) {
+            return Cache::get($cache);
+        }
+
+        $create = app('model.bus')->create([
+            'latitude'  => $request->latitude,
+            'longitude' => $request->longitude,
+        ]);
+
+        Cache::forever($cache, $create);
+
+        return $record;
     }
 
-    protected function cacheBusStops()
+    /**
+     * update a bus
+     *
+     * @param [type] $bus
+     * @param [type] $request
+     *
+     * @return void
+     */
+    public function update($bus, $request)
     {
-        Cache::forever('bus_stops', BusStop::all());
+        $cache = 'bus-repository-all';
 
-        // you can use this in the UI to show the last updated of your record
-        Cache::forever(
-            'bus_stops_last_updated_at',
-            (string) BusStop::orderBy('updated_at', 'desc')
-                ->first()
-                ->updated_at
-        );
+        if (Cache::has($cache)) {
+            return Cache::get($cache);
+        }
 
-        return $stops;
+        $update = app('user.bus')->find($bus)->fill($request);
+
+        Cache::forever($cache, $update);
+
+        return $record;
     }
 }

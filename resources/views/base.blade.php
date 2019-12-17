@@ -9,7 +9,9 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <script src="{{ asset('/js/app.js') }}"></script>
   </head>
-  <body id="root"></body>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script src="{{ asset('/js/app.js') }}"></script>
 </html>
