@@ -30,6 +30,16 @@ class StopRepository
     }
 
     /**
+     * Random record
+     *
+     * @return void
+     */
+    public function pickRandom()
+    {
+        return app('model.stop')->get()->random();
+    }
+
+    /**
      * Display nearest Bus stop of the authenticated user
      *
      * @return void
@@ -38,9 +48,9 @@ class StopRepository
     {
         $cache = 'stop-repository-get-' . request()->user()->latitude . request()->user()->longitude;
 
-        if (Cache::has($cache)) {
-            return Cache::get($cache);
-        }
+        // if (Cache::has($cache)) {
+        //     return Cache::get($cache);
+        // }
 
         $userLocator = app('user');
         $stopLocator = app('stop');

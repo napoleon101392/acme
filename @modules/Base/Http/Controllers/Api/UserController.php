@@ -2,20 +2,23 @@
 
 namespace Modules\Base\Http\Controllers\Api;
 
+use Illuminate\Http\Request;
 use Modules\Base\Http\Response;
 use Modules\Base\Http\Controllers\Controller;
 
-class StopController extends Controller
+class UserController extends Controller
 {
     /**
-     * Displays all bus stops
+     * Undocumented function
+     *
+     * @param Request $request
      *
      * @return void
      */
-    public function index()
+    public function update(Request $request)
     {
         try {
-            $stops = app('repository.stop')->get();
+            $user = app('repository.user')->update($request);
 
             return Response::make()->default($stops);
         } catch (\Exception $e) {
