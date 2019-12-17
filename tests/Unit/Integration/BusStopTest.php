@@ -12,8 +12,8 @@ class BusStopTest extends TestCase
 
     public function testGetDistanceOfBusToStop()
     {
-        $bus  = resolve('repository.bus')->first();
-        $stop = resolve('repository.stop')->first();
+        $bus  = resolve('model.bus')->first();
+        $stop = resolve('model.stop')->first();
 
         $bus = resolve('bus')
             ->setLatitude($bus->latitude)
