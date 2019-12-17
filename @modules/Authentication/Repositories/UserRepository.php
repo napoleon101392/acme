@@ -4,8 +4,14 @@ namespace Modules\Authentication\Repositories;
 
 class UserRepository
 {
-    public function findByEmail($email)
+    public function login($email, $password)
     {
-        return app('model.user')->newQuery()->where('email', $email)->first();
+        $user = app('model.user')->newQuery()->where('email', $email)->first();
+
+        if (Hash::check($password, $user->password)) {
+            return $user;
+        }
+
+        throw new \Exception('User not found');
     }
 }

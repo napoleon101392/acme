@@ -52,6 +52,9 @@ RUN apt-get update -y && \
   echo "\nupload_max_filesize = 100M" >> /etc/php/7.2/fpm/php.ini && \
   echo "\npost_max_size = 100M" >> /etc/php/7.2/fpm/php.ini && \
   echo "\ndate.timezone = Asia\/Manila" >> /etc/php/7.2/fpm/php.ini && \
+  curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+  apt-get update -y && \
+  apt-get install -y nodejs build-essential \
   chmod +x /var/www/composer-install.sh && \
   sh /var/www/composer-install.sh && \
   rm /var/www/composer-install.sh

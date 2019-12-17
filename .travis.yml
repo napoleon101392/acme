@@ -9,4 +9,3 @@ before_script:
   - composer install
   - composer dumpautoload -o
   - php artisan optimize
-  - php artisan migrate --seed

@@ -14,9 +14,9 @@ class AuthenticationManager
      *
      * @return void
      */
-    public function login(Request $request)
+    public function login($request)
     {
-        $user = app('repository.user')->findByEmail($request->email);
+        $user = app('repository.user')->login($request->email, $request->password);
 
         $return = app('authentication.passport')->personalToken($request, $user);
 

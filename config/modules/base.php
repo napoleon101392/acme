@@ -21,6 +21,7 @@ return [
          */
         'bus'                     => Modules\Locator\BusLocator::class,
         'stop'                    => Modules\Locator\StopLocator::class,
+        'user'                    => Modules\Locator\UserLocator::class,
         'authentication.manager'  => Modules\Authentication\AuthenticationManager::class,
         'authentication.passport' => Modules\Authentication\PassportManager::class,
     ],
