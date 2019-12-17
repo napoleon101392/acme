@@ -10,14 +10,6 @@ class BusStopTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp()
-    {
-        parent::setUp();
-
-        factory(\Modules\Base\Models\Bus::class)->create();
-        factory(\Modules\Base\Models\Stop::class)->create();
-    }
-
     public function testGetDistanceOfBusToStop()
     {
         $bus  = resolve('repository.bus')->first();
