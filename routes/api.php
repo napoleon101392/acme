@@ -2,5 +2,5 @@
 
 Route::group(['namespace' => 'Api'], function ($router) {
     $router->post('/login', 'AuthController@login');
-    $router->get('/stops', 'StopController@index');
+    $router->get('/stops', 'StopController@index')->middleware('auth:api');
 });

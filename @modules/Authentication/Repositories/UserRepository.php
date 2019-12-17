@@ -2,6 +2,8 @@
 
 namespace Modules\Authentication\Repositories;
 
+use Illuminate\Support\Facades\Hash;
+
 class UserRepository
 {
     public function login($email, $password)
