@@ -2,8 +2,9 @@
 
 namespace Modules\Base\Http\Controllers\Api;
 
-use Modules\Base\Http\Response;
+use Illuminate\Http\Request;
 use Modules\Base\Http\Controllers\Controller;
+use Modules\Base\Http\Response;
 
 class StopController extends Controller
 {
@@ -12,10 +13,10 @@ class StopController extends Controller
      *
      * @return void
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
-            $stops = app('repository.stop')->get();
+            $stops = app('repository.stop')->get($request);
 
             return Response::make()->default($stops);
         } catch (\Exception $e) {

@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
         factory(\Modules\Base\Models\User::class)->create();
         factory(\Modules\Base\Models\Bus::class)->create();
         factory(\Modules\Base\Models\Stop::class)->create();
+
+        $thus->call(BusRouterSgTableSeeder::class);
     }
 }

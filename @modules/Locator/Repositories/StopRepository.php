@@ -2,12 +2,13 @@
 
 namespace Modules\Locator\Repositories;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Modules\Transportation\Transportation;
 
 class StopRepository
 {
-    const NEAREST_STOP = "1";
+    const NEAREST_STOP = "1.00";
 
     /**
      * Display all bus stops
@@ -37,6 +38,7 @@ class StopRepository
     public function pickRandom()
     {
         return app('model.stop')->get()->random();
+        // return $this->all()->random();
     }
 
     /**
@@ -44,10 +46,10 @@ class StopRepository
      *
      * @return void
      */
-    public function get()
+    public function get(Request $request)
     {
-        $cache = 'stop-repository-get-' . request()->user()->latitude . request()->user()->longitude;
-
+        // $cache = 'stop-repository-get-' . $request->latitude . $request->longitude;
+        //
         // if (Cache::has($cache)) {
         //     return Cache::get($cache);
         // }
@@ -55,31 +57,34 @@ class StopRepository
         $userLocator = app('user');
         $stopLocator = app('stop');
 
-        $record = app('model.stop')->all()->filter(function ($model, $index) use ($userLocator, $stopLocator) {
-            $user = $userLocator
-                ->setLatitude(request()->user()->latitude)
-                ->setLongitude(request()->user()->longitude);
+        $records = app('model.stop')->get()
+            ->map(function ($record) use ($userLocator, $stopLocator, $request) {
+                $user = $userLocator
+                    ->setLatitude($request->latitude)
+                    ->setLongitude($request->longitude);
 
-            $stop = $stopLocator
-                ->setLatitude($model->latitude)
-                ->setLongitude($model->longitude);
+                $stop = $stopLocator
+                    ->setLatitude($record->latitude)
+                    ->setLongitude($record->longitude);
 
-            $distance = Transportation::make()
-                ->to($user)
-                ->from($stop)
-                ->calculate();
+                $record->distance = Transportation::make()
+                    ->to($user)
+                    ->from($stop)
+                    ->calculate();
 
-            if ($distance <= self::NEAREST_STOP) {
-                $model->distance = (int) $distance;
+                return $record;
+            })
+            ->filter(function ($record, $index) use ($request) {
+                if ($record->distance <= self::NEAREST_STOP) {
+                    return true;
+                }
 
-                return true;
-            }
+                return false;
+            })
+            ->take(10);
 
-            return false;
-        });
+        // Cache::forever($cache, $record);
 
-        Cache::forever($cache, $record);
-
-        return $record;
+        return $records;
     }
 }
