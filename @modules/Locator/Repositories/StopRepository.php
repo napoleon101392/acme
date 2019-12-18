@@ -38,7 +38,6 @@ class StopRepository
     public function pickRandom()
     {
         return app('model.stop')->get()->random();
-        // return $this->all()->random();
     }
 
     /**
@@ -48,12 +47,6 @@ class StopRepository
      */
     public function get(Request $request)
     {
-        // $cache = 'stop-repository-get-' . $request->latitude . $request->longitude;
-        //
-        // if (Cache::has($cache)) {
-        //     return Cache::get($cache);
-        // }
-
         $userLocator = app('user');
         $stopLocator = app('stop');
 
@@ -82,8 +75,6 @@ class StopRepository
                 return false;
             })
             ->take(10);
-
-        // Cache::forever($cache, $record);
 
         return $records;
     }
