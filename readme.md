@@ -3,7 +3,6 @@
 Commands that needs to execute
  - php artisan passport:install
  - php artisan migrate --seed
- - php artisan stop:seed  /** this will parse the data in raw, then seed in the pointed DB*/
 
 ### Directories
  -- @frontend
