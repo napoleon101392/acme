@@ -1,12 +1,24 @@
 [![Build Status](https://travis-ci.com/napoleon101392/acme.svg?branch=master)](https://travis-ci.com/napoleon101392/acme)
 
-Commands that needs to execute
- - php artisan passport:install
- - php artisan migrate --seed
+# To start with the backend
 
-### Directories
- -- @frontend
-    > I put it here so that it will not create another repo
+```bash
+composer install
+php artisan migrate --seed
+php artisan passport:install
+```
 
- -- @modules
-    > Contains Core classes and modules
+If you get an error for some reason and it regards to Application Key, try to regenerate your local token
+
+```bash
+php artisan key:generate
+```
+
+# To start with the frontend
+
+```bash
+cd ./@frontend
+yarn install
+yarn build
+yarn start
+```
